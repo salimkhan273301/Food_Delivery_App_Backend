@@ -34,6 +34,7 @@ public class CustomerController {
         this.userService=userService;
     }
 
+    // salim khan jaddupipra
     @PostMapping
     public ResponseEntity<String> createCustomer(@RequestBody Customer customer) {
         try {
