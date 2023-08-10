@@ -22,7 +22,7 @@ import com.servosys.model.User;
 import com.servosys.model.UserRole;
 import com.servosys.service.CustomerService;
 import com.servosys.service.UserService;
-@CrossOrigin(origins = "*", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST})
+@CrossOrigin(origins = "*", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT,RequestMethod.DELETE})
 @RestController
 @RequestMapping("/api/customers")
 public class CustomerController {
@@ -34,7 +34,7 @@ public class CustomerController {
         this.userService=userService;
     }
 
-    // salim khan jaddupipra
+    // salim khan jaddupipra 
     @PostMapping
     public ResponseEntity<String> createCustomer(@RequestBody Customer customer) {
         try {
@@ -86,9 +86,11 @@ public class CustomerController {
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<Customer> getCustomerById(@PathVariable Long id) {
+    public ResponseEntity<Customer> getCustomerById(@PathVariable Long id) throws InterruptedException {
         try {
-            Customer customer = customerService.getCustomerById(id);
+        	Thread.sleep(1000);
+        	Customer customer = customerService.getCustomerById(id);
+            
             System.out.println(customer.toString());
             return ResponseEntity.ok(customer);
         } catch (UserNotFoundException e) {
@@ -110,8 +112,10 @@ public class CustomerController {
 
 
     @PutMapping("/{id}")
-    public ResponseEntity<Customer> updateCustomer(@PathVariable Long id, @RequestBody Customer customer) {
+    public ResponseEntity<Customer> updateCustomer(@PathVariable Long id, @RequestBody Customer customer) throws InterruptedException {
         try {
+        	System.out.println("************************************");
+        	Thread.sleep(1000);
             Customer updatedCustomer = customerService.updateCustomer(id, customer);
             return ResponseEntity.ok(updatedCustomer);
         } catch (UserNotFoundException e) {

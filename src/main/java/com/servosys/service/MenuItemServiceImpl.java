@@ -27,4 +27,26 @@ public class MenuItemServiceImpl implements MenuItemService {
         return menuItemRepository.findByRestaurant_RestaurantId(restaurantId);
     }
     // Implement more service methods as needed
+
+	@Override
+	public List<List<String>> getMenuItemsByPincode(Long pincode) {
+		 return menuItemRepository.findMenuByPincode( String.valueOf(pincode) );
+	}
+
+	@Override
+	public void deleteMenuItem(Long itemId) {
+		menuItemRepository.deleteById(itemId);
+		
+	}
+
+	@Override
+	public MenuItem updateMenuItem(MenuItem updatedmenuItem) {
+		
+		return menuItemRepository.save(updatedmenuItem) ;
+	}
+
+	 @Override
+	    public List<MenuItem> getAllMenuItems() {
+	        return menuItemRepository.findAll();
+	    }
 }

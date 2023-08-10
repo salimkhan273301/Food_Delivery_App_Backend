@@ -2,6 +2,7 @@ package com.servosys.model;
 
 
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -19,6 +20,7 @@ public class User {
 
   
     private String password;
+    @Column(unique=true)
     private String email;
 
     @Enumerated(EnumType.STRING)

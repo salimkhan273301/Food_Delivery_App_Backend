@@ -1,6 +1,7 @@
 package com.servosys.model;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,7 +17,7 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long customerId;
 
-   // @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+
    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", referencedColumnName = "userId", unique = true)
  
@@ -28,7 +29,8 @@ public class Customer {
     private String phoneNumber;
     private String pincode;
 
-    // Additional fields
+    
+    @Column(unique=true)
     private String email;
     private String password;
 

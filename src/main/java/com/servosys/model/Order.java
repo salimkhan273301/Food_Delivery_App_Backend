@@ -27,9 +27,9 @@ public class Order {
 
     private Date orderDate;
     private double totalAmount;
-    private String status;
+    private OrderStatus status;
 	public Order(Long orderId, Customer customer, Restaurant restaurant, Date orderDate, double totalAmount,
-			String status) {
+			OrderStatus status) {
 		super();
 		this.orderId = orderId;
 		this.customer = customer;
@@ -38,6 +38,11 @@ public class Order {
 		this.totalAmount = totalAmount;
 		this.status = status;
 	}
+	
+	public Order() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Long getOrderId() {
 		return orderId;
 	}
@@ -68,11 +73,11 @@ public class Order {
 	public void setTotalAmount(double totalAmount) {
 		this.totalAmount = totalAmount;
 	}
-	public String getStatus() {
+	public OrderStatus getStatus() {
 		return status;
 	}
-	public void setStatus(String status) {
-		this.status = status;
+	public void setStatus(OrderStatus booked) {
+		this.status = booked;
 	}
 	@Override
 	public String toString() {

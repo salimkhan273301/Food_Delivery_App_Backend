@@ -48,8 +48,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer updateCustomer(Long id, Customer customer) throws UserNotFoundException {
-        // Implement the logic to update a customer
-        // Example:
+      
         Customer existingCustomer = customerRepository.findById(id)
                 .orElseThrow(() -> new UserNotFoundException("Customer not found"));
 

@@ -9,4 +9,10 @@ public interface MenuItemService {
     MenuItem getMenuItemById(Long itemId);
     // Add more service methods as needed
 	List<MenuItem> getMenuItemsByRestaurantId(Long restaurantId);
+	List<List<String>> getMenuItemsByPincode(Long pincode);
+	void deleteMenuItem(Long itemId);
+	MenuItem updateMenuItem(MenuItem menuItem);
+	List<MenuItem> getAllMenuItems();
+	
+	
 }
